@@ -1,0 +1,65 @@
+<div *ngIf="isTableView">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts; let i = index">
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.contactNumber }}</td>
+        <td class="td-fit">
+          <div class="d-flex">
+            <button class="btn btn-secondary" (click)="openContact(contact)">
+              <i class="bi bi-eye-fill"></i>
+            </button>
+            <button class="btn btn-warning ms-3" (click)="openEdit(contact)">
+              <i class="bi bi-pencil-fill"></i>
+            </button>
+            <button
+              class="btn btn-danger ms-3"
+              (click)="openDelete(contact.id)"
+            >
+              <i class="bi bi-trash3-fill"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!isTableView">
+  <div class="row">
+    <div
+      class="col-xl-3 col-md-4 col-sm-6 col-xs-12 mb-3"
+      *ngFor="let contact of contacts; let i = index"
+    >
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="m-0 cursor-pointer" (click)="openContact(contact)">
+              {{ contact.name }}
+            </h5>
+            <div class="d-flex">
+              <i
+                class="bi bi-pencil-fill cursor-pointer"
+                (click)="openEdit(contact)"
+              ></i>
+              <i
+                class="bi bi-trash3-fill ms-2 cursor-pointer"
+                (click)="openDelete(contact.id)"
+              ></i>
+            </div>
+          </div>
+          <p class="card-text mb-0">{{ contact.email }}</p>
+          <p class="card-text mt-0 pt-0">{{ contact.contactNumber }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

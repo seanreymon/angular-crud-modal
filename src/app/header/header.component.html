@@ -1,0 +1,27 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <h1>Contacts Information</h1>
+  </div>
+</div>
+<div class="row mb-3">
+  <div
+    class="col-12 d-flex flex-wrap justify-content-between align-items-center"
+  >
+    <p>
+      Your list of contacts appear here. To add new contact, click on the <br />
+      Add new contact button
+    </p>
+    <button class="btn btn-primary" (click)="openAdd()">Add New Contact</button>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col-12 grid-view">
+    <button class="btn" (click)="onClickGrid()" [disabled]="isTableView">
+      <i class="bi bi-list"></i>
+    </button>
+    <button class="btn" (click)="onClickGrid()" [disabled]="!isTableView">
+      <i class="bi bi-grid"></i>
+    </button>
+  </div>
+</div>
+<app-contacts [contacts]="contacts" [isTableView]="isTableView"></app-contacts>
