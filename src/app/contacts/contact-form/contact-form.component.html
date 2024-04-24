@@ -10,43 +10,96 @@
   ></button>
 </div>
 <div class="modal-body">
-  <form [formGroup]="contactForm">
-    <div class="form-group">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-2">
       <label for="name">Name</label>
       <input
         type="text"
         id="name"
         class="form-control"
         formControlName="name"
+        aria-label="name"
+        placeholder="Enter name"
       />
+      <span
+        class="help-block form-text"
+        *ngIf="
+          contactForm.get('name')?.invalid &&
+          (contactForm.get('name')?.touched || contactForm.get('name')?.dirty)
+        "
+      >
+        <span *ngIf="contactForm.get('name')?.hasError('required')"
+          >Name is required.</span
+        >
+        <span *ngIf="contactForm.get('name')?.hasError('minlength')"
+          >Name should be at least 2 characters.</span
+        >
+      </span>
     </div>
-    <div class="form-group">
+    <div class="form-group mb-2">
       <label for="email">Email</label>
       <input
         type="text"
         id="email"
         class="form-control"
         formControlName="email"
+        aria-label="email"
+        placeholder="Enter email address"
       />
+      <span
+        class="help-block form-text"
+        *ngIf="
+          contactForm.get('email')?.invalid &&
+          (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)
+        "
+      >
+        <span *ngIf="contactForm.get('email')?.hasError('required')"
+          >Email is required.</span
+        >
+        <span *ngIf="contactForm.get('email')?.hasError('email')"
+          >Email is invalid.</span
+        >
+      </span>
     </div>
-    <div class="form-group">
+    <div class="form-group mb-2">
       <label for="contactNumber">Contact Number</label>
       <input
         type="text"
         id="contactNumber"
         class="form-control"
         formControlName="contactNumber"
+        aria-label="contact number"
+        placeholder="Enter contact number"
       />
+      <span
+        class="help-block form-text"
+        *ngIf="
+          contactForm.get('contactNumber')?.invalid &&
+          (contactForm.get('contactNumber')?.touched ||
+            contactForm.get('contactNumber')?.dirty)
+        "
+      >
+        <span *ngIf="contactForm.get('contactNumber')?.hasError('required')"
+          >Contact number is required.</span
+        >
+        <span *ngIf="contactForm.get('contactNumber')?.hasError('pattern')"
+          >Contact number should contain 11 digits only.</span
+        >
+      </span>
     </div>
     <div class="modal-footer">
       <button
         type="button"
-        class="btn btn-outline-dark"
+        class="btn btn-cancel"
         (click)="activeModal.dismiss('Close click')"
       >
-        Close
+        Cancel
       </button>
-      <button type="submit" class="btn btn-success" (click)="onSubmit()">
+      <button
+        type="submit"
+        class="btn btn-save"
+        [disabled]="!contactForm.valid"
+      >
         {{ isEditMode ? "Update" : "Create" }}
       </button>
     </div>

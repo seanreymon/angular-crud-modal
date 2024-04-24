@@ -9,17 +9,25 @@
   >
     <p>
       Your list of contacts appear here. To add new contact, click on the <br />
-      Add new contact button
+      <span class="fw-bold fs-5">Add new contact button</span>
     </p>
-    <button class="btn btn-primary" (click)="openAdd()">Add New Contact</button>
+    <button class="btn btn-add" (click)="openAdd()">Add New Contact</button>
   </div>
 </div>
 <div class="row mb-3">
   <div class="col-12 grid-view">
-    <button class="btn" (click)="onClickGrid()" [disabled]="isTableView">
+    <button
+      class="btn grid-btn fs-4 fw-bold"
+      (click)="onClickGrid()"
+      [disabled]="isTableView"
+    >
       <i class="bi bi-list"></i>
     </button>
-    <button class="btn" (click)="onClickGrid()" [disabled]="!isTableView">
+    <button
+      class="btn grid-btn fs-4 fw-bold"
+      (click)="onClickGrid()"
+      [disabled]="!isTableView"
+    >
       <i class="bi bi-grid"></i>
     </button>
   </div>

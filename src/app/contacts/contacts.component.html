@@ -1,6 +1,6 @@
-<div *ngIf="isTableView">
-  <table class="table">
-    <thead>
+<div *ngIf="isTableView" class="table-parent table-responsive">
+  <table class="table table-hover">
+    <thead class="table-head">
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
@@ -8,21 +8,18 @@
         <th scope="col">Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
       <tr *ngFor="let contact of contacts; let i = index">
-        <td>{{ contact.name }}</td>
-        <td>{{ contact.email }}</td>
-        <td>{{ contact.contactNumber }}</td>
-        <td class="td-fit">
-          <div class="d-flex">
-            <button class="btn btn-secondary" (click)="openContact(contact)">
-              <i class="bi bi-eye-fill"></i>
-            </button>
-            <button class="btn btn-warning ms-3" (click)="openEdit(contact)">
+        <td class="col-4 contact-view align-middle" (click)="openContact(contact)">{{ contact.name }}</td>
+        <td class="col-4 align-middle">{{ contact.email }}</td>
+        <td class="col-3 align-middle">{{ contact.contactNumber }}</td>
+        <td class="col-1">
+          <div class="d-flex justify-content-start gap-3">
+            <button class="btn edit" (click)="openEdit(contact)">
               <i class="bi bi-pencil-fill"></i>
             </button>
             <button
-              class="btn btn-danger ms-3"
+              class="btn delete"
               (click)="openDelete(contact.id)"
             >
               <i class="bi bi-trash3-fill"></i>
@@ -36,28 +33,28 @@
 <div *ngIf="!isTableView">
   <div class="row">
     <div
-      class="col-xl-3 col-md-4 col-sm-6 col-xs-12 mb-3"
+      class="col-xl-3 col-md-4 col-sm-6 col-xs-12 gap-3"
       *ngFor="let contact of contacts; let i = index"
     >
       <div class="card">
         <div class="card-body">
-          <div class="d-flex justify-content-between align-items-center">
-            <h5 class="m-0 cursor-pointer" (click)="openContact(contact)">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="m-0 card-action" (click)="openContact(contact)">
               {{ contact.name }}
             </h5>
-            <div class="d-flex">
+            <div class="d-flex gap-3">
               <i
-                class="bi bi-pencil-fill cursor-pointer"
+                class="bi bi-pencil-fill card-action"
                 (click)="openEdit(contact)"
               ></i>
               <i
-                class="bi bi-trash3-fill ms-2 cursor-pointer"
+                class="bi bi-trash3-fill card-action delete"
                 (click)="openDelete(contact.id)"
               ></i>
             </div>
           </div>
-          <p class="card-text mb-0">{{ contact.email }}</p>
-          <p class="card-text mt-0 pt-0">{{ contact.contactNumber }}</p>
+          <p class="card-text mb-2">{{ contact.email }}</p>
+          <p class="card-text">{{ contact.contactNumber }}</p>
         </div>
       </div>
     </div>

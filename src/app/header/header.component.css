@@ -9,3 +9,26 @@
     justify-content: start;
   }
 }
+
+.btn-add {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 15px;
+  cursor: pointer;
+  background: #bb50d3;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+}
+
+.btn-add:hover{
+  background: #b632d3;
+}
+
+.btn.grid-btn {
+  border: none;
+}
+
+p {
+  margin-bottom: 0;
+}

@@ -1,16 +1,22 @@
 {
   "contacts": [
     {
-      "id": "d8e6",
-      "name": "test",
+      "name": "Naruto Uzumaki",
       "email": "test@sample.com",
-      "contactNumber": "092132131321"
+      "contactNumber": "09213213132",
+      "id": "d8e6"
     },
     {
-      "id": "174c",
-      "name": "sample",
-      "email": "sample@test.com",
-      "contactNumber": "03921391293"
+      "name": "Juan Dela Cruz",
+      "email": "test@test.com",
+      "contactNumber": "12321321312",
+      "id": "f8ff"
+    },
+    {
+      "name": "Boy Tapang",
+      "email": "test@sample.com",
+      "contactNumber": "12345566666",
+      "id": "7364"
     }
   ]
 }

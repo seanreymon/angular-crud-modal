@@ -1,0 +1,29 @@
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched {
+  border-color: red;
+  color: red;
+}
+.help-block {
+  color: red;
+}
+
+.btn-cancel {
+  border: 1px solid #bb50d3;
+  border-radius: 1rem;
+}
+.btn-cancel:hover {
+  border: 1px solid #bb50d3;
+  background: #bb50d3;
+  color: #fff;
+}
+
+.btn-save{
+  border: 1px solid #bb50d3;
+  background: #bb50d3;
+  border-radius: 1rem;
+  color: #fff
+}
+.btn-save:hover{
+  background: #a133b9;
+}
+
